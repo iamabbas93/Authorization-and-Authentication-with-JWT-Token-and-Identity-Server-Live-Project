@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<h1>Test Resgiter</h1>
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <fieldset>
+                <legend>Profile Detail </legend>
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-3 form-control-label">Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="name" name="name" required="" maxlength="50"
+                               data-toggle="First Name" data-placement="top" data-html="true" title="First name">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-3 form-control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" id="email" name="email" required=""
+                               data-toggle="tooltip" data-placement="top" data-html="true" title="Email-Id must be <br> in this format 'john@host.web'" />
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-3 form-control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" id="password" name="password" required
+                               data-toggle="tooltip" data-placement="top" data-html="true" title="Email-Id must be <br> in this format 'john@host.web'" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-3 form-control-label">Gender</label>
+                    <div class="col-sm-9">
+                        <input type="radio" name="gender" value="male" checked> Male &nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="gender" value="female"> Female<br>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-3 form-control-label">Profile</label>
+                    <div class="col-sm-9 addlogo">
+                        <div class="avatar">
+                            <input type="hidden" id="fileName" />
+                            <div class="kv-avatar center-block">
+                                <input id="imgupload" name="imgupload" type="file" class="file-loading" required accept="image/jpg,image/png,image/jpeg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="clearfix"> </div>
+        </div>
+        <br />
+        <div class="col-md-3"></div>
+        <div class="col-md-9 col-sm-12">
+            <button type="reset" id="rst" class="btn btn-info">Reset</button>
+            <button type="submit" class="btn btn-primary" id="addprofile" value="" onclick="submitData()">Submit</button>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+
+
+
+    function submitData() {
+
+
+        debugger;
+        var formData = new FormData();
+        //var files = $("#imgupload").files;
+
+
+        //formData.append("file", files[0]);
+        formData.append("UserName", $('#name').val());
+        formData.append("Email", $('#email').val());
+        formData.append("Password", $('#password').val());
+
+        debugger;
+        $.ajax({
+            type: 'POST',
+            url: "https://localhost:5001/api/AuthManagement/Register",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                if (response == 1) {
+                    alert("successfully Profile Updated");
+                }
+                else {
+                    alert("Something Went Wrong..");
+                }
+            }
+        })
+
+    }
+
+</script>

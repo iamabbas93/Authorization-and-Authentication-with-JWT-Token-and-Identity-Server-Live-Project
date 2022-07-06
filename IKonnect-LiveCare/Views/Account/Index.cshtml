@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<table cellspacing="0" cellpadding="0" border="0" class="layui-table">
+    <tbody>
+        <tr data-index="0" class="rowdatatest">
+            <td data-field="sid" data-content="123456" class="Name">
+                <div class="layui-table-cell laytable-cell-1-sid"> 123456 </div>
+            </td>
+            <td class="password">
+                <div></div>
+            </td>
+        </tr>
+        <tr data-index="1" class="rowdatatest">
+            <td data-field="sid" data-content="100012">
+                <div class="layui-table-cell laytable-cell-1-sid"> 100012 </div>
+            </td>
+            <td>
+                <div></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    $("document").ready(function () {
+
+
+        debugger;
+        var tds = document.getElementsByClassName("rowdatatest");
+        debugger;
+        for (var i = 0; i < tds.length; i++) {
+            debugger;
+            // If it currently has the ColumnHeader class...
+            if (tds[i].className == "ColumnHeader") {
+                // Set a new width
+                tds[i].style.width = new_width;
+
+                // Or set a different class which defines the width
+                tds[i].className = "someOtherClass";
+            }
+        }
+        //debugger;
+        //var tb = $('.layui-table:eq(0) tbody');
+        //var size = tb.find("tr").length;
+        //debugger;
+        //console.log("Number of rows : " + size);
+
+        //var edu=[]
+        //debugger;
+        //tb.find("tr").each(function (index, element) {
+        //    debugger;
+        //    var colSize = $(element).find('td').length;
+        //    debugger;
+        //    console.log("  Number of cols in row " + (index + 1) + " : " + colSize);
+        //    debugger;
+        //    $(element).find('td').each(function (index, element) {
+        //       debugger;
+        //        var colVal = $(element).text();
+        //        debugger;
+
+        //        var clsName = $(element).find.();
+        //        debugger;
+
+        //        var obj = { };
+        //        Object.assign(obj, { clsName: colVal});
+        //        debugger;
+        //        edu.push(obj)
+        //        debugger;
+        //    });
+        //});
+    });
+</script>
